@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Khoury is Launching Soon! 🚀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3f51b5 100%);
+            min-height: 100vh;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .rocket {
+            font-size: 60px;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #e8dcc0;
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            font-weight: 300;
+            color: #b8c5d6;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .parents-names {
+            font-size: 4em;
+            font-family: 'Brush Script MT', cursive;
+            color: #7fb3d3;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .mission-control {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .mission-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e8dcc0;
+        }
+
+        .mission-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .detail-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .detail-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #e8dcc0;
+        }
+
+        .detail-info {
+            font-size: 1.2em;
+            color: #b8c5d6;
+            line-height: 1.6;
+        }
+
+        .launch-countdown {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .countdown-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #e8dcc0;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #7fb3d3;
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            color: #b8c5d6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .message-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e8dcc0;
+        }
+
+        .message-text {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #b8c5d6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .astronaut-emoji {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .rsvp-section {
+            background: linear-gradient(135deg, #7fb3d3, #5a9bd4);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .rsvp-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1a237e;
+            font-weight: bold;
+        }
+
+        .rsvp-deadline {
+            font-size: 1.8em;
+            color: #1a237e;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .rsvp-button {
+            background: #1a237e;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .rsvp-button:hover {
+            background: #0d47a1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #b8c5d6;
+            font-size: 1.1em;
+        }
+
+        .space-elements {
+            position: fixed;
+            font-size: 2em;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5em;
+            }
+            
+            .parents-names {
+                font-size: 2.8em;
+            }
+            
+            .mission-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-timer {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="space-elements" style="top: 10%; left: 10%;">🌙</div>
+    <div class="space-elements" style="top: 20%; right: 15%;">⭐</div>
+    <div class="space-elements" style="bottom: 30%; left: 5%;">🪐</div>
+    <div class="space-elements" style="bottom: 10%; right: 10%;">✨</div>
+
+    <div class="container">
+        <header class="header">
+            <div class="rocket">🚀</div>
+            <h1 class="main-title">A BABY IS<br>LAUNCHING SOON</h1>
+            <p class="subtitle">Join us for a baby shower honoring</p>
+            <h2 class="parents-names">Emily & Jason<br>Khoury</h2>
+        </header>
+
+        <section class="mission-control">
+            <h2 class="mission-title">🌟 Mission Control Details 🌟</h2>
+            <div class="mission-details">
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3 class="detail-title">Launch Date</h3>
+                    <p class="detail-info">Saturday<br>August 30th, 2025</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🕔</div>
+                    <h3 class="detail-title">Mission Time</h3>
+                    <p class="detail-info">5:00 PM - 8:00 PM</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🏨</div>
+                    <h3 class="detail-title">Space Station</h3>
+                    <p class="detail-info">The Blue Jay Hotel<br>644 Bridge St NW<br>Grand Rapids, MI 49504</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="launch-countdown">
+            <h2 class="countdown-title">🚀 T-Minus Countdown to Launch! 🚀</h2>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="message-section">
+            <h2 class="message-title">🌟 A New Star is Born 🌟</h2>
+            <div class="astronaut-emoji">👨‍🚀</div>
+            <p class="message-text">
+                We're over the moon excited to welcome our little astronaut, and we can't wait to share this incredible journey with all of you! Join us as we celebrate the upcoming arrival of our baby boy - he's going to be our greatest adventure yet! Come help us prepare for this amazing mission ahead. 
+            </p>
+        </section>
+
+        <section class="message-section">
+            <h2 class="message-title">🚀 Mission Supply List 🚀</h2>
+            <div style="font-size: 3em; margin: 20px 0;">🎁</div>
+            <p class="message-text">
+                Our little astronaut is getting ready for his big adventure, and we could use some help stocking the spacecraft! We've put together a registry of all the essentials our tiny space explorer will need for his journey through babyhood. From rocket ship onesies to lunar lullaby books, every gift will help us prepare for this incredible mission. Your love and support mean the universe to us - literally! 🌌
+            </p>
+            <div style="margin-top: 30px;">
+                <button class="rsvp-button" onclick="openRegistry()" style="background: #7fb3d3; color: #1a237e;">VIEW REGISTRY 🛸</button>
+            </div>
+        </section>
+
+        <section class="rsvp-section">
+            <h2 class="rsvp-title">🎯 Mission RSVP 🎯</h2>
+            <p class="rsvp-deadline">Please confirm your attendance by August 10th</p>
+            <button class="rsvp-button" onclick="openRSVP()">RSVP FOR LAUNCH 🚀</button>
+        </section>
+
+        <footer class="footer">
+            <p>✨ Thank you for being part of our cosmic journey! ✨</p>
+            <p>We can't wait to celebrate with you!</p>
+            <div style="margin-top: 20px; font-size: 2em;">🌟👶🚀🌙</div>
+        </footer>
+    </div>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfStars = 100;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const launchDate = new Date('August 30, 2025 17:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (timeLeft < 0) {
+                document.getElementById('countdown').innerHTML = '<h2 style="color: #7fb3d3; font-size: 2em;">🎉 LAUNCH DAY HAS ARRIVED! 🎉</h2>';
+            }
+        }
+
+        // Registry function
+        function openRegistry() {
+            window.open('https://my.babylist.com/baby-boy-khoury', '_blank');
+        }
+
+        // RSVP function
+        function openRSVP() {
+            const subject = encodeURIComponent('RSVP for Baby Khoury Launch Party 🚀');
+            const body = encodeURIComponent(`Hi Emily & Jason!
+
+I'm so excited to celebrate with you at the baby shower!
+
+Name(s): 
+Number of guests: 
+Any dietary restrictions: 
+
+Can't wait to meet your little astronaut! 🌟👶
+
+Love,
+`);
+            
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        // Initialize
+        createStars();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Add some interactive elements
+        document.addEventListener('mousemove', (e) => {
+            const rocket = document.querySelector('.rocket');
+            const x = (e.clientX / window.innerWidth) * 10;
+            const y = (e.clientY / window.innerHeight) * 10;
+            rocket.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
